@@ -143,7 +143,7 @@ install_zsh_plugins() {
 configure_zshrc() {
     print_info "Configuring .zshrc..."
     
-    cat > "$HOME/.zshrc" << 'EOF'
+    cat > "$HOME/.zshrc" << 'ZSHRC_EOF'
 # Path to oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -182,7 +182,7 @@ PROMPT='%F{cyan}╭─%f %F{green}%n%f %F{yellow}@%f %F{blue}%m%f %F{magenta}%~%
 if command -v neofetch &> /dev/null; then
     neofetch --ascii_distro android_small
 fi
-EOF
+ZSHRC_EOF
 
     print_success ".zshrc configured"
 }
@@ -191,7 +191,7 @@ EOF
 configure_bashrc() {
     print_info "Configuring .bashrc..."
     
-    cat > "$HOME/.bashrc" << 'EOF'
+    cat > "$HOME/.bashrc" << 'BASHRC_EOF'
 # Bash configuration
 
 # Custom PS1
@@ -211,7 +211,7 @@ alias install='pkg install'
 if command -v neofetch &> /dev/null; then
     neofetch --ascii_distro android_small
 fi
-EOF
+BASHRC_EOF
 
     print_success ".bashrc configured"
 }
@@ -277,7 +277,7 @@ EOF
 create_welcome_script() {
     print_info "Creating welcome banner..."
     
-    cat > "$HOME/.termux_welcome" << 'EOF'
+    cat > "$HOME/.termux_welcome" << 'WELCOME_EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 figlet -f small "Termux" | lolcat
 echo ""
@@ -286,7 +286,7 @@ echo -e "\e[36m│\e[0m  Welcome to your riced Termux!      \e[36m│\e[0m"
 echo -e "\e[36m│\e[0m  Minimal • Optimized • Aesthetic    \e[36m│\e[0m"
 echo -e "\e[36m└─────────────────────────────────────┘\e[0m"
 echo ""
-EOF
+WELCOME_EOF
 
     chmod +x "$HOME/.termux_welcome"
     print_success "Welcome banner created"
